@@ -1,55 +1,36 @@
 #include <stdio.h>
 
-struct  variable
+struct variable
 {
     /* data */
     int value1;
     int value2;
     char operation;
     int calculation;
-
+    int year;
 };
 
-void calculator(int *value1, int *value2, char *operation, int *result){
-    switch (*operation){
-        
-        case '+':
-            *result = *value1 + *value2;
-            break;
-        
-        case '-':
-            *result = *value1 - *value2;
-            break;
-          
-        case '*':
-            *result = *value1 * *value2;
-            break;
-         
-        case '/':
-            *result = *value1 / *value2;
-            break;
+void leap_year(int *year)
+{
+    if (*year % 4 == 0 && *year % 100 != 0 || *year % 400 == 0)
+    {
+        printf("its a leap year \n");
     }
-    // return *result;
+    else
+    {
+        printf("its not a leap year \n");
+    }
 }
 
-int main(){
+int main()
+{
 
     struct variable vb;
 
-    while (1){
-    printf("enter the value first value:");
-    scanf("%d", &vb.value1);
-
-    printf("enter the value second value:");
-    scanf("%d", &vb.value2);
-
-
-    printf("Enter operation (+, -, *, /): ");
-    scanf(" %c", &vb.operation);
-
-    calculator(&vb.value1, &vb.value2, &vb.operation, &vb.calculation);
-
-    printf(" the final result is %d \n", vb.calculation);
+    while (1)
+    {
+        printf("enter the year:");
+        scanf("%d", &vb.year);
+        leap_year(&vb.year);
     }
-
 }
