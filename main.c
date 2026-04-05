@@ -3,34 +3,37 @@
 struct variable
 {
     /* data */
-    int value1;
-    int value2;
-    char operation;
-    int calculation;
-    int year;
+    int value;
 };
 
-void leap_year(int *year)
+void palindrome_number(int *value)
 {
-    if (*year % 4 == 0 && *year % 100 != 0 || *year % 400 == 0)
+    int original = *value;
+    int number = *value;
+    int temp = 0;
+    int rev = 0;
+    while(number > 0)
     {
-        printf("its a leap year \n");
+        temp = number % 10;
+        rev = rev * 10+ temp;
+        number = number / 10;
     }
-    else
-    {
-        printf("its not a leap year \n");
-    }
+
+     if ( rev == original )
+     {
+        printf("palindrom");
+     }
+     else 
+     printf(" not palindrom");
 }
 
 int main()
 {
-
     struct variable vb;
 
-    while (1)
-    {
-        printf("enter the year:");
-        scanf("%d", &vb.year);
-        leap_year(&vb.year);
-    }
+    printf("enter the value");
+    scanf("%d", &vb.value);
+
+    palindrome_number(&vb.value);
+
 }
