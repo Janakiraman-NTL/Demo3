@@ -6,25 +6,26 @@ struct variable
     int value;
 };
 
-void palindrome_number(int *value)
+void prime_number(int *value)
 {
-    int original = *value;
-    int number = *value;
-    int temp = 0;
-    int rev = 0;
-    while(number > 0)
+    int isprime =1;
+    if (*value <= 1)
     {
-        temp = number % 10;
-        rev = rev * 10+ temp;
-        number = number / 10;
+    printf("Not a prime number\n");
+    return;
     }
 
-     if ( rev == original )
-     {
-        printf("palindrom");
-     }
-     else 
-     printf(" not palindrom");
+   for( int i = 2; i < *value ; i++)
+   {
+         if ( *value % i == 0){
+            isprime = 0;
+            break;
+         }
+   }
+   if( isprime == 0)
+   printf("not prime number");
+   else
+   printf("prime number");
 }
 
 int main()
@@ -34,6 +35,6 @@ int main()
     printf("enter the value");
     scanf("%d", &vb.value);
 
-    palindrome_number(&vb.value);
+    prime_number(&vb.value);
 
 }
